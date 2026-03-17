@@ -18,18 +18,20 @@
             <label for="nav-toggle" class="burger">&#9776;</label>
             <ul>
                 <li><a href="./home.html">Home</a></li>
-                <li><a href="">Rooms</a></li>
                 <li><a href="../index.html">Hotels</a></li>
                 <li><a href="./booked.html">Booked Room</a></li>
                 <li><a href="./login.html">Log in</a></li>
-                <li><a href="./register.html">Register</a></li>
+                <li><a href="./my booking.html">My Booking</a></li>
             </ul>
         </div>
     </header>
 
     <section class="filter-bar">
-        <input id="maxPrice" type="number" min="0" placeholder="Max price ($)"> 
-    
+        <input id="maxPrice" type="number" min="0" placeholder="Max price (€)"> 
+        
+        <input type="date" id="checkInDate">
+        <input type="date" id="checkOutDate">
+
         <select id="guestFilter">
             <option value="0">Guests</option>
             <option value="1">1</option>
@@ -57,6 +59,12 @@
     <footer>
         <p>© 2023 IT Academy Step All; Rights Reserved</p>
     </footer>
+
+
+
+
+
+    
 
     <script src="../js/room.js"></script>
     

@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/common.css">
     <link rel="stylesheet" href="../styles/book now.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
@@ -19,56 +20,23 @@
             <label for="nav-toggle" class="burger">&#9776;</label>
             <ul>
                 <li><a href="./home.html">Home</a></li>
-                <li><a href="">Rooms</a></li>
                 <li><a href="../index.html">Hotels</a></li>
                 <li><a href="./booked.html">Booked Room</a></li>
                 <li><a href="./login.html">Log in</a></li>
-                <li><a href="./register.html">Register</a></li>
+                <li><a href="./my booking.html">My Booking</a></li>
             </ul>
         </div>
     </header>
+
+
+
 
 
 <!-- ═══ TOP ═══ -->
 <div class="top-section">
 
   <!-- CSS-only Slider -->
-  <div class="slider-wrap">
-    <input type="radio" name="slide" id="s1" checked>
-    <input type="radio" name="slide" id="s2">
-    <input type="radio" name="slide" id="s3">
-    <input type="radio" name="slide" id="s4">
-    <input type="radio" name="slide" id="s5">
-
-    <div class="slides">
-      <div class="slide">Room View 1</div>
-      <div class="slide">Room View 2</div>
-      <div class="slide">Room View 3</div>
-      <div class="slide">Room View 4</div>
-      <div class="slide">Room View 5</div>
-    </div>
-
-    <div class="slider-arrows">
-      <!-- prev labels -->
-      <label for="s1" class="arr-prev">&#8249;</label>
-      <label for="s2" class="arr-prev">&#8249;</label>
-      <label for="s3" class="arr-prev">&#8249;</label>
-      <label for="s4" class="arr-prev">&#8249;</label>
-      <!-- next labels -->
-      <label for="s2" class="arr-next">&#8250;</label>
-      <label for="s3" class="arr-next">&#8250;</label>
-      <label for="s4" class="arr-next">&#8250;</label>
-      <label for="s5" class="arr-next">&#8250;</label>
-    </div>
-
-    <div class="dots">
-      <label for="s1"></label>
-      <label for="s2"></label>
-      <label for="s3"></label>
-      <label for="s4"></label>
-      <label for="s5"></label>
-    </div>
-  </div>
+      <div id="roomInfo" class="slider-wrap"></div>
 
   <!-- Reservation -->
   <div class="reservation-card">
@@ -81,7 +49,7 @@
 
     <div class="form-group">
       <label>Check-in <span class="help-icon">?</span></label>
-      <div class="input-wrap">
+      <div class="input-wrap" id="check-in-wrap">
         <input type="date" placeholder="Check-in">
         <span class="ico">&#128197;</span>
       </div>
@@ -89,27 +57,32 @@
 
     <div class="form-group">
       <label>Check-out <span class="help-icon">?</span></label>
-      <div class="input-wrap">
+      <div class="input-wrap" id="check-out-wrap">
         <input type="date" placeholder="Check-out">
         <span class="ico">&#128197;</span>
       </div>
     </div>
 
+
+
     <div class="form-group">
       <label>Customer Name</label>
-      <div class="input-wrap">
+      <div class="input-wrap" id="customer-name-wrap">
         <input type="text" placeholder="Please enter your name">
       </div>
     </div>
 
     <div class="form-group">
       <label>Customer Tel:Phone</label>
-      <div class="input-wrap">
+      <div class="input-wrap" id="customer-tel-wrap">
         <input type="tel" placeholder="Please enter your phone number">
       </div>
     </div>
 
-    <button class="btn-book">Book Now</button>
+    <button class="btn-book" id="book-now-btn">
+      Book Now
+    </button>
+
   </div>
 </div>
 
@@ -139,6 +112,8 @@
     <p class="room-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula nibh, cursus id euismod non, scelerisque nec nibh. Nam semper, ligula a rhoncus fermentum, libero lacus vulputate felis, id auctor mauris urna quis diam.</p>
   </div>
 
+
+  
   <!-- Right: CSS Tabs -->
   <div class="overview-panel">
     <h3>Overview</h3>
@@ -160,7 +135,6 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum eleifend augue, quis rhoncus purus fermentum. In hendrerit risus arcu, in deferend metus dapibus varius. Nulla dolor sapien, laoreet vel tincidunt non, egestas non justo.<br><br>
               Donec pretium sem non tincidunt iaculis. Nunc ut pharetra eros, a varius leo. Mauris id hendrerit justo. Mauris egestas magna vitae nisl. Nam vitae suscipit magna. Nulla dolor sapien, laoreet vel tincidunt non, egestas non justo.
             </p>
-            <div class="overview-img"></div>
           </div>
         </div>
         <div class="tab-panel" id="p2">
@@ -177,29 +151,7 @@
 <!-- ═══ OTHER ROOMS ═══ -->
 <div class="section-title">Other rooms</div>
 
-<div class="other-rooms-grid">
-  <div class="room-card">
-    <div class="room-card-img" style="background:linear-gradient(135deg,#8a7560,#bfad95,#6e6050)"></div>
-    <div class="room-card-body">
-      <h4>Standard Room</h4>
-      <div class="card-price">€69,- <span>a night</span></div>
-    </div>
-  </div>
-  <div class="room-card">
-    <div class="room-card-img" style="background:linear-gradient(135deg,#7a8a70,#b0bfa5,#5e6e56)"></div>
-    <div class="room-card-body">
-      <h4>Deluxe Room</h4>
-      <div class="card-price">€89,- <span>a night</span></div>
-    </div>
-  </div>
-  <div class="room-card">
-    <div class="room-card-img" style="background:linear-gradient(135deg,#607080,#95aabf,#405060)"></div>
-    <div class="room-card-body">
-      <h4>Presidential Suite</h4>
-      <div class="card-price">€159,- <span>a night</span></div>
-    </div>
-  </div>
-</div>
+
 
 
 
@@ -211,6 +163,9 @@
     </footer>
 
 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="../js/book now.js"></script>
 
 </body>

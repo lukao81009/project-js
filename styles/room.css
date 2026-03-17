@@ -84,7 +84,7 @@
     flex-wrap: wrap;
 }
 
-.filter-bar input[type="text"], .filter-bar input[type="number"], .filter-bar select {
+.filter-bar input[type="text"], .filter-bar input[type="number"], .filter-bar input[type="date"],  .filter-bar select {
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
