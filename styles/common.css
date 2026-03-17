@@ -13,6 +13,10 @@ header {
     background-color: white;
     display: flex;
     align-items: center;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .hleft {
@@ -51,17 +55,16 @@ header {
     display: none;
     cursor: pointer;
     right: 10px;
-    font-size: 1.5rem;  /* responsive base size */
+    font-size: 1.5rem;
 }
 
 .burger svg {
     width: 1em;
     height: 1em;
-    fill: currentColor;  /* ensure it inherits text color */
+    fill: currentColor;
 }
 
 @media screen and (max-width: 984px) {
-    /* start collapsing navigation earlier for tablets */
     .hright ul {
         display: none;
         flex-direction: column;

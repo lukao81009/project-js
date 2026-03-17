@@ -18,6 +18,19 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
 }
 
 .card-body {
@@ -26,11 +39,10 @@
     flex-direction: column;
     align-items: center;
     padding: 15px 30px;
-    border-top: 1px solid #ddd; /* gray line in the middle */
-    border-bottom: 1px solid #ddd; /* gray line at the bottom */
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
-/* container for title and price placed side-by-side */
 .card-info {
     width: 100%;
     display: flex;
@@ -60,11 +72,65 @@
     border: 1px solid rgb(0, 0, 0);
 }
 
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
 
+.filter-bar input[type="text"], .filter-bar input[type="number"], .filter-bar select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    min-height: 38px;
+}
 
+.filter-bar select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 32px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23666' d='M0 0l5 6 5-6z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
 
+.filter-bar button {
+    padding: 8px 12px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    min-height: 38px;
+}
 
+.filter-bar button:hover { opacity: 0.9; }
 
+.card-meta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    color: #666;
+    margin: 8px 0;
+    font-size: 0.9rem;
+}
+
+.no-results {
+    width: 100%;
+    text-align: center;
+    padding: 18px;
+    color: #555;
+}
 
 @media screen and (max-width: 768px) {
     #rooms {
@@ -74,5 +140,10 @@
 
     .card {
         width: 80%;
+    }
+
+    .filter-bar input[type="text"], .filter-bar input[type="number"], .filter-bar select, .filter-bar button {
+        width: calc(100% - 24px);
+        max-width: 420px;
     }
 }

@@ -1,0 +1,85 @@
+main {
+    width: 100%;
+}
+#booking-list{
+    width: 100%;
+}
+
+#booking-list table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#booking-list th,
+#booking-list td{
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+#booking-list th{
+    background-color: #f4f4f4;
+}
+
+/* zebra striping for rows */
+#booking-list tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+/* sticky header */
+#booking-list thead th {
+    position: sticky;
+    top: 0;
+    background: #f4f4f4;
+    z-index: 1;
+}
+
+
+.cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+/* responsive adjustments */
+@media (max-width: 600px) {
+    #booking-list table,
+    #booking-list thead,
+    #booking-list tbody,
+    #booking-list th,
+    #booking-list td,
+    #booking-list tr {
+        display: block;
+    }
+    #booking-list thead {
+        float: left;
+    }
+    #booking-list tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    #booking-list td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    #booking-list td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 0.5rem;
+        font-weight: bold;
+        text-align: left;
+    }
+}

@@ -1,0 +1,225 @@
+#mn {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+#mn img {
+    width: 100%;
+    height: 450px;
+    display: block;
+    object-fit: cover;
+}
+
+.caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(5px, 1.5vw, 15px);
+    min-height: 0px;
+    min-width: 0px;
+    border-width: 0px;
+    margin: 0px;
+    padding: clamp(8px, 2vw, 15px);
+    letter-spacing: 0px;
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.caption h1 {
+    font-size: clamp(28px, 7vw, 54px);
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+.tagline {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+    font-size: clamp(14px, 3vw, 22px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-weight: bold;
+}
+
+.btn-hotels {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: inline-block;
+    padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 30px);
+    background-color: #e439c4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: clamp(12px, 2.5vw, 16px);
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-hotels:hover {
+    background-color: #df7acc;
+}
+
+.favorite-rooms {
+    padding: 60px 40px;
+    background-color: #f9f9f9;
+}
+
+.favorite-rooms h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.favorite-rooms h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #17a2b8, transparent);
+}
+
+.favorite-rooms h3 {
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+    margin: 40px 0 30px 0;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.favorite-rooms h3::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #17a2b8, transparent);
+}
+
+.usp-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.usp-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.usp-icon {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #17a2b8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #17a2b8;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.usp-card:hover .usp-icon {
+    background-color: #17a2b8;
+    color: white;
+    border-color: #17a2b8;
+}
+
+.usp-icon * {
+    width: 40px;
+    height: 40px;
+    fill: currentColor;
+}
+
+.usp-card h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.usp-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #17a2b8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #0e5a6f;
+}
+
+.read-more i {
+    margin-left: 5px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .usp-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .caption h1 {
+        font-size: clamp(24px, 6vw, 40px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .caption h1 {
+        font-size: clamp(20px, 5vw, 32px);
+    }
+
+    .usp-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .favorite-rooms {
+        padding: 40px 20px;
+    }
+}

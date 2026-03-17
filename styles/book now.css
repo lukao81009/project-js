@@ -1,0 +1,327 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal: #4db8cc;
+  --dark: #2c2c2c;
+  --mid: #666;
+  --border: #e0e0e0;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   TOP SECTION: SLIDER + CARD
+══════════════════════════════ */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  max-width: 960px;
+  margin: 30px auto 0;
+  padding: 0 16px;
+}
+
+/* ── CSS-only Slider ── */
+.slider-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-right: none;
+}
+
+.slider-wrap input[type="radio"] { display: none; }
+
+.slides {
+  display: flex;
+  width: 500%;
+  height: 300px;
+  transition: transform .5s ease;
+}
+
+.slide {
+  width: 20%;
+  height: 300px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.3);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.slide:nth-child(1) { background: linear-gradient(135deg,#8a7560,#bfad95,#6e6050); }
+.slide:nth-child(2) { background: linear-gradient(135deg,#7a8a70,#b0bfa5,#5e6e56); }
+.slide:nth-child(3) { background: linear-gradient(135deg,#706070,#a595a5,#504058); }
+.slide:nth-child(4) { background: linear-gradient(135deg,#607080,#95aabf,#405060); }
+.slide:nth-child(5) { background: linear-gradient(135deg,#807060,#bfb595,#606050); }
+
+#s1:checked ~ .slides { transform: translateX(0%); }
+#s2:checked ~ .slides { transform: translateX(-20%); }
+#s3:checked ~ .slides { transform: translateX(-40%); }
+#s4:checked ~ .slides { transform: translateX(-60%); }
+#s5:checked ~ .slides { transform: translateX(-80%); }
+
+/* Arrow labels — all hidden by default */
+.slider-arrows {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  pointer-events: none;
+}
+.slider-arrows label {
+  pointer-events: all;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,.25);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s;
+  line-height: 1;
+}
+.slider-arrows label:hover { background: rgba(255,255,255,.5); }
+
+/* Show correct prev/next per active slide */
+#s1:checked ~ .slider-arrows label[for="s2"].arr-next { display: flex; }
+#s2:checked ~ .slider-arrows label[for="s1"].arr-prev { display: flex; }
+#s2:checked ~ .slider-arrows label[for="s3"].arr-next { display: flex; }
+#s3:checked ~ .slider-arrows label[for="s2"].arr-prev { display: flex; }
+#s3:checked ~ .slider-arrows label[for="s4"].arr-next { display: flex; }
+#s4:checked ~ .slider-arrows label[for="s3"].arr-prev { display: flex; }
+#s4:checked ~ .slider-arrows label[for="s5"].arr-next { display: flex; }
+#s5:checked ~ .slider-arrows label[for="s4"].arr-prev { display: flex; }
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.dots label {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.4);
+  cursor: pointer;
+  display: block;
+  transition: background .2s;
+}
+
+#s1:checked ~ .dots label[for="s1"],
+#s2:checked ~ .dots label[for="s2"],
+#s3:checked ~ .dots label[for="s3"],
+#s4:checked ~ .dots label[for="s4"],
+#s5:checked ~ .dots label[for="s5"] { background: #fff; }
+
+/* ── Reservation card ── */
+.reservation-card {
+  border: 1px solid var(--border);
+  padding: 20px 18px 24px;
+  background: var(--white);
+}
+
+.reservation-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  letter-spacing: .5px;
+}
+
+.price-row { text-align: center; margin-bottom: 16px; }
+.price-row .room-type { font-size: 12px; color: var(--mid); }
+.price-row .price { color: var(--teal); font-weight: 700; font-size: 16px; margin: 0 4px; }
+.price-row .per-night { font-size: 12px; color: var(--mid); }
+
+.form-group { margin-bottom: 12px; }
+.form-group > label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--mid);
+  color: #fff;
+  font-size: 9px;
+  margin-left: 4px;
+}
+
+.input-wrap { position: relative; }
+.input-wrap input {
+  width: 100%;
+  border: 1px solid var(--border);
+  padding: 8px 32px 8px 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: #999;
+  outline: none;
+  transition: border-color .2s;
+}
+.input-wrap input:focus { border-color: var(--teal); }
+.input-wrap .ico {
+  position: absolute;
+  right: 10px; top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.btn-book {
+  width: 100%;
+  padding: 11px;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background .2s;
+}
+.btn-book:hover { background: #3aa8bc; }
+
+/* ══════════════════════════════
+   SECTION TITLES
+══════════════════════════════ */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 960px;
+  margin: 36px auto 20px;
+  padding: 0 16px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: .5px;
+}
+.section-title::before,
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ══════════════════════════════
+   MIDDLE
+══════════════════════════════ */
+.middle-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.room-details h3 { font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 4px;
+  border: 1px solid var(--border);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+.feature-item { display: flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 3px 0; }
+.feature-item .check { color: var(--teal); font-size: 12px; flex-shrink: 0; }
+
+.room-desc { font-size: 13px; color: var(--mid); line-height: 1.7; }
+
+/* ── CSS-only Tabs ── */
+.overview-panel h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.tab-wrap input[type="radio"] { display: none; }
+
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+.tab-bar label {
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--mid);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .2s;
+}
+.tab-bar label:hover { color: var(--dark); }
+
+#t1:checked ~ .tab-bar label[for="t1"],
+#t2:checked ~ .tab-bar label[for="t2"],
+#t3:checked ~ .tab-bar label[for="t3"] {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+  font-weight: 700;
+}
+
+.tab-panel { display: none; }
+#t1:checked ~ .tab-panels #p1,
+#t2:checked ~ .tab-panels #p2,
+#t3:checked ~ .tab-panels #p3 { display: block; }
+
+.overview-body { display: grid; grid-template-columns: 1fr 110px; gap: 14px; align-items: start; }
+.overview-text { font-size: 13px; color: var(--mid); line-height: 1.7; }
+.overview-img {
+  width: 110px; height: 90px;
+  background: linear-gradient(135deg,#d4a574,#c8935a,#b07840);
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════
+   OTHER ROOMS
+══════════════════════════════ */
+.other-rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto 50px;
+  padding: 0 16px;
+}
+.room-card { border: 1px solid var(--border); overflow: hidden; transition: box-shadow .2s; cursor: pointer; }
+.room-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+.room-card-img { width: 100%; height: 140px; display: block; }
+.room-card-body { padding: 12px 14px; }
+.room-card-body h4 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 15px; margin-bottom: 4px; }
+.card-price { color: var(--teal); font-weight: 700; font-size: 14px; }
+.card-price span { color: var(--mid); font-weight: 300; font-size: 12px; }
